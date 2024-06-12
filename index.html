@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Worm Haven</title>
+    <link rel="icon" href="./assets/logobwh.png">
+    <link rel="stylesheet" href="index.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .product-item img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+
+        }
+
+        .header img {
+            width: 350px;
+            height: 350px;
+            filter: brightness(1.0) contrast(1.0);
+        }
+
+        .image:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+        .header .one {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .header .one a {
+            width: 120px;
+            margin-left: 35%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">
+            <img src="./assets/logobwh.png" class="image" alt="">
+        </a>
+        <div>
+            <ul>
+                <a href="index.html" id="index">Home</a>
+                <a href="literary.html" target="_blank">Books</a>
+                <a href="reviews.html" target="_blank">Reviews</a>
+                <a href="interview.html" target="_blank">Interviews</a>
+                <a href="virtual.html" target="_blank">Book Club</a>
+                <p onclick="showBlock()">Contact us</p>
+            </ul>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="header">
+            <div class="one ">
+                <h1>Welcome to Book Worm Haven</h1>
+                <p>Explore the fascinating world of books!</p>
+                <a href="literary.html"><button class="header-button">Explore More</button></a>
+            </div>
+            <div>
+                <img src="./assets/Designer.jpeg" alt="Books Image">
+            </div>
+        </div>
+        <hr>
+        <div class="product ">
+            <h2 class="section-title" style="width: 20px 0;">Featured Books</h2>
+            <div class="product-container">
+                <div class="product-item ">
+                    <img src="./assets/the god of Small things.png" class="image" alt="Product Image">
+                    <h3>The God of Small Things</h3>
+                    <p>Arundhati Roy</p>
+                    <a href="reviews.html"> <button>Learn More</button></a>
+                </div>
+                <div class="product-item ">
+                    <img src="./assets/a suitable boy.jpg" class="image" alt="Product Image">
+                    <h3>A Suitable Boy</h3>
+                    <p>Vikram Seth</p>
+                    <a href="reviews.html"> <button>Learn More</button></a>
+                </div>
+                <div class="product-item ">
+                    <img src="./assets/the namesake.jpg" class="image" alt="Product Image">
+                    <h3>The Namesake</h3>
+                    <p>Jhumpa Lahiri</p>
+                    <a href="reviews.html"> <button>Learn More</button></a>
+                </div>
+                <div class="product-item ">
+                    <img src="./assets/the white tiger.jpg" class="image" alt="Product Image">
+                    <h3>The White Tiger</h3>
+                    <p>Aravind Adiga</p>
+                    <a href="reviews.html"> <button>Learn More</button></a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="product-slider-rating header-box ">
+            <h2>Featured Author's </h2>
+            <div class="products">
+                <div class="product-card ">
+                    <div class="product-img-container">
+                        <img src="./assets/Arundhati_Roy.jpg" class="image" alt="">
+                    </div>
+                    <h4>Arundhati Roy</h4>
+                    <p>The Novelist</p>
+                    <a href="C:\Users\Bala\Desktop\Book Worm Haven\interview.html">Show more</a>
+                </div>
+                <div class="product-card ">
+                    <div class="product-img-container">
+                        <img src="./assets/chetanbhagat.jpg" class="image" alt="">
+                    </div>
+                    <h4>Chetan Bhagat</h4>
+                    <p>The Author</p>
+                    <a href="C:\Users\Bala\Desktop\Book Worm Haven\interview.html">Show more</a>
+                </div>
+                <div class="product-card ">
+                    <div class="product-img-container">
+                        <img src="./assets/RuskinBond.jpg" class="image" alt="">
+                    </div>
+                    <h4>Ruskin Bond</h4>
+                    <p>The Author</p>
+                    <a href="C:\Users\Bala\Desktop\Book Worm Haven\interview.html">Show more</a>
+                </div>
+                <div class="product-card ">
+                    <div class="product-img-container">
+                        <img src="./assets/RK.webp" class="image" alt="">
+                    </div>
+                    <h4>R. K. Narayan</h4>
+                    <p>The Novelist</p>
+                    <a href="C:\Users\Bala\Desktop\Book Worm Haven\interview.html">Show more</a>
+                </div>
+                <div class="product-card ">
+                    <div class="product-img-container">
+                        <img src="./assets/jk rowling.jpeg" class="image" alt="">
+                    </div>
+                    <h4>J. K. Rowling</h4>
+                    <p>The Author</p>
+                    <a href="C:\Users\Bala\Desktop\Book Worm Haven\interview.html">Show more</a>
+                </div>
+                <div class="product-card ">
+                    <div class="product-img-container">
+                        <img src="./assets/stephen king.jpeg" class="image" alt="">
+                    </div>
+                    <h4>Stephen King</h4>
+                    <p>The Author</p>
+                    <a href="C:\Users\Bala\Desktop\Book Worm Haven\interview.html">Show more</a>
+                </div>
+                <div class="product-card ">
+                    <div class="product-img-container">
+                        <img src="./assets/agatha christie.jpeg" class="image" alt="">
+                    </div>
+                    <h4>Agatha Christie</h4>
+                    <p>The Writer</p>
+                    <a href="C:\Users\Bala\Desktop\Book Worm Haven\interview.html">Show more</a>
+                </div>
+                <div class="product-card ">
+                    <div class="product-img-container">
+                        <img src="./assets/george.jpeg" class="image" alt="">
+                    </div>
+                    <h4>George R. R. Martin</h4>
+                    <p>The Novelist</p>
+                    <a href="C:\Users\Bala\Desktop\Book Worm Haven\interview.html">Show more</a>
+                </div>
+                <div class="product-card ">
+                    <div class="product-img-container">
+                        <img src="./assets/toni.jpeg" class="image" alt="">
+                    </div>
+                    <h4>Toni Morrison</h4>
+                    <p>The Novelist</p>
+                    <a href="C:\Users\Bala\Desktop\Book Worm Haven\interview.html">Show more</a>
+                </div>
+                <div class="product-card ">
+                    <div class="product-img-container">
+                        <img src="./assets/neil gaiman.jpeg" class="image" alt="">
+                    </div>
+                    <h4>Neil Gaiman</h4>
+                    <p>The Author</p>
+                    <a href="C:\Users\Bala\Desktop\Book Worm Haven\interview.html">Show more</a>
+                </div>
+                <div class="product-card ">
+                    <div class="product-img-container">
+                        <img src="./assets/haruki murakami.jpeg" class="image" alt="">
+                    </div>
+                    <h4>Haruki Murakami</h4>
+                    <p>The Writer</p>
+                    <a href="C:\Users\Bala\Desktop\Book Worm Haven\interview.html">Show more</a>
+                </div>
+                <div class="product-card ">
+                    <div class="product-img-container">
+                        <img src="./assets/albert camus.jpeg" class="image" alt="">
+                    </div>
+                    <h4>Albert Camus</h4>
+                    <p>The Author</p>
+                    <a href="C:\Users\Bala\Desktop\Book Worm Haven\interview.html">Show more</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="service ">
+            <div class="service-container-1 ">
+                <div>
+                    <h2>Discover Your Next Favorite Book</h2>
+                </div>
+            </div>
+            <div class="service-container-2 ">
+                <div>
+                    <i class="fa-solid fa-book-open"></i>
+                    <h4>Extensive Collection</h4>
+                    <p>Access a vast library of books across different genres and categories. There's something for
+                        everyone.</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-search"></i>
+                    <h4>Personalized Recommendations</h4>
+                    <p>Get book recommendations tailored to your preferences. Discover hidden gems in our library</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-globe"></i>
+                    <h4>Global Community</h4>
+                    <p>Join a global community of readers and participate in discussions, reviews, and book clubs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+
+        <div class="foo-div">
+            <a href="index.html">
+                <img id="footer-img" src="./assets/logobwh.png" class="image" alt="">
+            </a>
+            <div class="foo-div">
+                <a href="terms.html">
+                    <p>term's & condition's </p>
+                </a><i>|</i>
+                <a href="privacy.html">
+                    <p>privacy policy </p>
+                </a><i>|</i>
+                <div class="footer-icon-container">
+                    <i class="fa-brands fa-instagram" style="color:white;"></i>
+                    <i class="fa-brands fa-twitter" style="color:white;"></i>
+                    <i class="fa-brands fa-facebook" style="color:white;"></i>
+                </div><i>|</i>
+                <p>&copy; 2024 bookwormhaven.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="contact-container">
+        <h2 class="section-title" style="text-transform: uppercase;">Contact Us</h2>
+        <i class="fa-solid fa-xmark" onclick="showNone()"></i>
+        <div class="contact-details">
+            <p>Feel free to get in touch with us!</p>
+            <p>Email: info@bookwormhaven.com</p>
+
+        </div>
+        <div class="contact-form">
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <input onclick="showNone()" type="submit" value="Submit" class="input-submit">
+            </form>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    var sidenav = document.querySelector(".side-navbar");
+
+    function showNavbar() {
+        sidenav.style.left = "0";
+    }
+
+    function closeNavbar() {
+        sidenav.style.left = "-50%";
+    }
+    const scrollContainer = document.querySelectorAll(".products");
+    for (const item of scrollContainer) {
+        item.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+            item.scrollLeft += evt.deltaY;
+        })
+    }
+    const summa = document.querySelector(".contact-container");
+    const main = document.querySelector(".main");
+    function showBlock() {
+        summa.style.display = "block";
+        main.style.filter = "blur(10px)";
+    }
+    function showNone() {
+        summa.style.display = "none";
+        main.style.filter = "blur(0px)";
+    }
+</script>
+
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Content List</title>
+    <link rel="icon" href="./assets/logobwh.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right,hsl(0, 0%, 90%),hsl(0, 0%, 100%));
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            transition: 2s;
+        }
+
+        nav a img {
+            width: 100px;
+            height: 100%;
+        }
+
+        nav { text-transform: uppercase;
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgb(0, 0, 0);
+            padding: 10px 20px;
+            color: grey;
+            z-index: 2;
+        }
+
+        nav div ul {
+            display: flex;
+            text-decoration: none;
+            gap: 20px;
+        }
+
+        nav div ul a:hover {
+            color: #fff;
+        }
+
+        #index {
+            color: #fff;
+        }
+
+        
+        .nav-bottom {
+            max-height: 41px;
+            position: sticky;
+            top: 63px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 8px 20px;
+            background: rgb(79, 79, 80);
+            color: #dddddd;
+            font-size: 15px;
+            z-index: 2;
+        }
+
+        .nav-bottom div {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+        }
+
+        /* .nav-bottom .ele {
+            display: none;
+        }
+        .nav-bottom .ele li{
+            display: none;
+        } */
+        
+
+        .nav-bottom .elements {
+            position: relative;
+            top: 60px;
+            left: -50px;
+        }
+
+        nav .forHover:hover,
+        .nav-bottom .drop:hover,#index-a   {
+            border: 1px white solid;
+            border-radius: 4px;
+            padding: 2px;
+            cursor: pointer;
+            background-color: rgb(99, 100, 100);
+            margin: 0 10px;
+        }
+
+        .container {
+            width: 96%;
+            margin: auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .book-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 20px;
+        }
+
+        .book-item {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .book-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .book-item h3 {
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .book-item p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .book-item .description {
+            font-size: 0.9em;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1d1d1d;
+            color: white;
+        }
+
+        #footer-img {
+            width: 100px;
+            height: 39px;
+        }
+
+        footer p {
+            font-size: 15px;
+        }
+
+        footer .foo-div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        footer .foo-div a{
+            color: grey;
+        }
+        footer .foo-div a:hover{
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">
+            <img src="./assets/logobwh.png" alt="">
+        </a>
+        <div>
+            <ul>
+                <a href="index.html">Home</a>
+                <a href="literary.html" id="index">Books</a>
+                <a href="reviews.html" >Reviews</a>
+                <a href="interview.html">Interviews</a>
+                <a href="virtual.html">Book Club</a>
+                <a href="contact.html">Contact Us</a>
+            
+            </ul>
+                
+        </div>
+    </nav>
+    <div class="nav-bottom" >
+        <div class="drop" >
+            <img src="./assets/menu_icon.png" width="25px" alt="">
+            <p>Literary Genres</p>
+        </div>
+<div>
+    
+        <a class="ele drop" href="fiction.html" target="_blank">fiction</a>
+        <a class="ele drop" href="non-fiction.html" id="index-a">non-fiction</a>
+        <a class="ele drop" href="folktales.html">folktales</a>
+        <a class="ele drop" href="drama.html">drama</a>
+        <a class="ele drop" href="poetry.html">poetry</a>
+    
+</div>
+
+    </div>
+    <div class="container">
+        <h1 style="text-transform: uppercase;">non-fictional book's</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for books..." onkeyup="filterBooks()">
+
+        </div>
+        <div class="book-list">
+            <!-- Book items here -->
+            <div class="book-item">
+                <img src="./nonfiction/1.A Brief History of Time.webp" alt="Book Cover">
+                <h3>Title: A Brief History of Time</h3>
+                <p>Author: Stephen Hawking</p>
+                <p class="description">Was there a beginning of time? Could time run backwards? These are just some of the questions considered in an internationally acclaimed masterpiece by one of the world's greatest thinkers.</p>
+            </div>
+            <div class="book-item">
+                <img src="./nonfiction/2.I Know Why the Caged Bird Sings.webp" alt="Book Cover">
+                <h3>Title: I Know Why the Caged Bird Sings</h3>
+                <p>Author: Maya Angelou</p>
+                <p class="description">Captures the longing of lonely children, the brute insult of bigotry, and the wonder of words that can make the world right.</p>
+            </div>
+            <!-- Repeat for the rest of the books -->
+            <!-- Add more book items below -->
+            <div class="book-item">
+                <img src="./nonfiction/3.In Cold Blood.webp" alt="Book Cover">
+                <h3>Title: In Cold Blood</h3>
+                <p>Author:  Truman Capote</p>
+                <p class="description">On November 15, 1959, in the small town of Holcomb, Kansas, four members of the Clutter family were savagely murdered by blasts from a shotgun held a few inches from their faces.</p>
+            </div>
+            <!-- Repeat for more books -->
+            <div class="book-item">
+                <img src="./nonfiction/4.Bury My Heart at Wounded Knee.webp" alt="Book Cover">
+                <h3>Title: Bury My Heart at Wounded Knee</h3>
+                <p>Author: Dee Brown</p>
+                <p class="description">Generated shockwaves with its frank and heartbreaking depiction of the systematic annihilation of American Indian tribes across the western frontier.</p>
+            </div>
+            <div class="book-item">
+                <img src="./nonfiction/5.Hiroshima.webp" alt="Book Cover">
+                <h3>Title: Hiroshima</h3>
+                <p>Author: John Hersey</p>
+                <p class="description">On August 6, 1945, Hiroshima was destroyed by the first atom bomb ever dropped on a city. This book, John Hersey's journalistic masterpiece, tells what happened on that day</p>
+            </div>
+            <div class="book-item">
+                <img src="./nonfiction/6.H is For Hawk.webp" alt="Book Cover">
+                <h3>Title: H is For Hawk.webp</h3>
+                <p>Author: Helen Macdonald</p>
+                <p class="description">Helen Macdonald's story of adopting and raising one of nature's most vicious predators has soared into the hearts of millions of readers worldwide.</p>
+            </div>
+            <div class="book-item">
+                <img src="./nonfiction/7.The Man Who Mistook His Wife For a Hat.webp" alt="Book Cover">
+                <h3>Title: The Man Who Mistook His Wife For a Hat</h3>
+                <p>Author: Oliver Sacks</p>
+                <p class="description">Oliver Sacks recounts the stories of patients lost in the bizarre, apparently inescapable world of neurological disorders</p>
+            </div>
+            <div class="book-item">
+                <img src="./nonfiction/8.Out of Africa.webp" alt="Book Cover">
+                <h3>Title: Out of Africa</h3>
+                <p>Author:  Isak Dinesen</p>
+                <p class="description">In this book, the author of Seven Gothic Tales gives a true account of her life on her plantation in Kenya.</p>
+            </div>
+            <div class="book-item">
+                <img src="./nonfiction/9.We Wish to Inform You that Tomorrow We Will Be Killed with Our Families.webp" alt="Book Cover">
+                <h3>Title: We Wish to Inform You that Tomorrow We Will Be Killed with Our Families</h3>
+                <p>Author: Philip Gourevitch</p>
+                <p class="description">A first-hand account one of the defining outrages of modern history, an unforgettable anatomy of Rwanda's decimation.</p>
+            </div>
+            <div class="book-item">
+                <img src="./nonfiction/10.Never Cry Wolf.webp" alt="Book Cover">
+                <h3>Title: Never Cry Wolf</h3>
+                <p>Author: Farley Mowat</p>
+                <p class="description">Hordes of bloodthirsty wolves are slaughtering the arctic caribou, and the government's Wildlife Service assigns naturalist Farely Mowat to investigate.</p>
+            </div>
+            <div class="book-item">
+                <img src="./nonfiction/11.A Short History of Nearly Everything.webp" alt="Book Cover">
+                <h3>Title: A Short History of Nearly Everything</h3>
+                <p>Author: Bill Bryson</p>
+                <p class="description">Taking as territory everything from the Big Bang to the rise of civilization, Bryson seeks to understand how we got from there being nothing at all to there being us.</p>
+            </div>
+            <div class="book-item">
+                <img src="./nonfiction/12.Alexander Hamilton.webp" alt="Book Cover">
+                <h3>Title: Alexander Hamilton</h3>
+                <p>Author: Ron Chernow</p>
+                <p class="description">The riveting life of Alexander Hamilton, an illegitimate, largely self-taught orphan from the Caribbean who overcame all the odds to become George Washington's aide-de-camp and the first Treasury Secretary of the United States.</p>
+            </div>
+            <div class="book-item">
+                <img src="./nonfiction/13.Blink.webp" alt="Book Cover">
+                <h3>Title: Blink</h3>
+                <p>Author:  Malcolm Gladwell</p>
+                <p class="description">Blink is a book about how we think without thinking, about choices that seem to be made in an instant-in the blink of an eye-that actually aren't as simple as they seem.</p>
+            </div>
+            <div class="book-item">
+                <img src="./nonfiction/14.Kitchen Confidential.webp" alt="Book Cover">
+                <h3>Title: Kitchen Confidential</h3>
+                <p>Author: Anthony Bourdain</p>
+                <p class="description">A deliciously funny, delectably shocking banquet of wild-but-true tales of life in the culinary trade from Chef Anthony Bourdain.</p>
+            </div>
+            <div class="book-item">
+                <img src="./nonfiction/15.Dreams From My Father.webp" alt="Book Cover">
+                <h3>Title: Dreams From My Father</h3>
+                <p>Author: Barack Obama</p>
+                <p class="description">In this lyrical, unsentimental, and compelling memoir, the son of a black African father and a white American mother searches for a workable meaning to his life as a black American.</p>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+    <footer>
+        
+        <div class="foo-div">
+            <a href="index.html">
+                <img id="footer-img" src="./assets/logobwh.png" class="image" alt="">
+            </a>
+       <div class="foo-div">
+<a href="terms.html" ><p>term's & condition's   </p></a><i>|</i>
+<a href="privacy.html" ><p>privacy policy   </p></a><i>|</i>
+<div class="footer-icon-container">
+    <i class="fa-brands fa-instagram" style="color:white;"></i>
+    <i class="fa-brands fa-twitter" style="color:white;"></i>
+    <i class="fa-brands fa-facebook" style="color:white;"></i>    
+</div><i>|</i>
+<p>&copy; 2024 bookwormhaven.com</p>
+       </div>
+          </div>
+</footer>
+    <script>
+        const paraElement = document.querySelectorAll(".ele");
+        function showAll() {
+            for (ele of paraElement) {
+                ele.style.display = 'block';
+            }
+        }
+        function noneAll() {
+            for (ele of paraElement) {
+                ele.style.display = 'none';
+            }
+        }
+        function filterBooks() {
+            const searchInput = document.querySelector('.search-bar input').value.toLowerCase();
+            const books = document.querySelectorAll('.book-item');
+
+            books.forEach(book => {
+                const title = book.querySelector('h3').textContent.toLowerCase();
+                const author = book.querySelector('p').textContent.toLowerCase();
+                const description = book.querySelector('.description').textContent.toLowerCase();
+
+                if (title.includes(searchInput) || author.includes(searchInput) || description.includes(searchInput)) {
+                    book.style.display = 'block';
+                } else {
+                    book.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

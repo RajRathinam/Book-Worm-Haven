@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Reviews</title>
+    <link rel="icon" href="./assets/logobwh.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right,hsl(0, 0%, 90%),hsl(0, 0%, 100%));
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+img{
+    transition: 2s;
+}
+        nav a img{
+    width: 100px;
+    height: 100%;
+}
+nav { text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(0, 0, 0);
+    padding: 10px 20px;
+    color: grey;
+    z-index: 2;
+}
+nav div ul{
+    display: flex;
+    text-decoration: none;
+    gap: 20px;
+}
+nav div ul a:hover{
+    color: #fff;
+    }
+    #index{
+        color: #fff;
+    }
+        .container {
+            max-width: 800px;
+            
+            margin:auto;
+            margin-top: 50px ;
+            margin-bottom: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h2.section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .reviews-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .review-item {
+            display: flex;
+            gap: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-item:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-avatar {
+            width: 23%;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .review-avatar img {
+            border-radius: 20px;
+            width: 100%;
+            height: 180px;
+        }
+
+        .review-content {
+            flex-grow: 1;
+        }
+
+        .review-content h3 {
+            margin: 0;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .review-content p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .review-date {
+            font-size: 0.9em;
+            color: #999;
+        }
+
+        .star-rating {
+            color: #FFD700;
+        }
+
+        .toggle-button {
+            background-color: hsl(0, 0%, 1%);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .toggle-button:hover {
+            background-color: hsl(0, 0%, 25%);
+        }
+
+        .review-text {
+            display: none; /* Initially hide review content */
+        }
+        footer{
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #1d1d1d;
+    color: white;
+}
+#footer-img{
+width: 100px;
+height: 39px;
+}
+footer p{
+    font-size: 15px;
+}
+footer .foo-div{
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 20px;
+}
+footer .foo-div a{
+    color: grey;
+}
+footer .foo-div a:hover{
+    color: #fff;
+}
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">
+            <img src="./assets/logobwh.png" alt="">
+        </a>
+        <div>
+            <ul>
+                <a href="index.html" >Home</a>
+                <a href="literary.html" >Books</a>
+                <a href="reviews.html" id="index" >Reviews</a>
+                <a href="interview.html">Interviews</a>
+                <a href="virtual.html" >Book Club</a>
+                <a href="contact.html" >Contact Us</a>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 class="section-title" style="text-transform: uppercase;">Book Review's</h2>
+        <div class="reviews-container">
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./reviewspic/rate12.jpg" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>The Alchemist</h3>
+                    <p>Paulo Coelho</p>
+                    <p class="review-date">Reviewed on May 09, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i>
+                    </p>
+                    <p class="review-text">An inspiring tale of self-discovery and adventure, The Alchemist is a masterpiece that speaks to the soul. The narrative is simple yet profound, and the philosophical insights are beautifully woven into the story. Santiago's journey is both physical and spiritual, leading to a deeper understanding of life's true treasures.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./assets/the god of Small things.png" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>The God of Small Things</h3>
+                    <p>Arundhati Roy</p>
+                    <p class="review-date">Reviewed on May 16, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                    </p>
+                    <p class="review-text">A poignant and deeply moving novel, To Kill a Mockingbird explores themes of racial injustice and moral growth. The characters are vividly drawn, and the story is both heart-wrenching and uplifting. Scout's narrative voice is charming and authentic, making the story even more compelling.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./assets/a suitable boy.jpg" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>A Suitable Boy</h3>
+                    <p>Vikram Seth</p>
+                    <p class="review-date">Reviewed on Jan 09, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i>
+                    </p>
+                    <p class="review-text">A timeless classic, Pride and Prejudice is a witty and insightful exploration of love, society, and the complexities of human relationships. Austen's characters are unforgettable, and her commentary on social norms is sharp and perceptive. Elizabeth Bennet's journey of self-awareness and growth is both entertaining and enlightening.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./assets/the namesake.jpg" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>The Namesake</h3>
+                    <p>Jhumpa Lahiri</p>
+                    <p class="review-date">Reviewed on May 19, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-regular fa-star" style="color: orange;"></i>
+                    </p>
+                    <p class="review-text">A timeless classic, Pride and Prejudice is a witty and insightful exploration of love, society, and the complexities of human relationships. Austen's characters are unforgettable, and her commentary on social norms is sharp and perceptive. Elizabeth Bennet's journey of self-awareness and growth is both entertaining and enlightening.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./assets/the white tiger.jpg" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>The White Tiger</h3>
+                    <p>Aravind Adiga</p>
+                    <p class="review-date">Reviewed on May 19, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i>
+                    </p>
+                    <p class="review-text">A timeless classic, Pride and Prejudice is a witty and insightful exploration of love, society, and the complexities of human relationships. Austen's characters are unforgettable, and her commentary on social norms is sharp and perceptive. Elizabeth Bennet's journey of self-awareness and growth is both entertaining and enlightening.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./reviewspic/1984.jpg" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>1984</h3>
+                    <p>George Orwell</p>
+                    <p class="review-date">Reviewed on May 11, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-regular fa-star" style="color: orange;"></i></p>
+                    <p class="review-text">A chilling dystopian novel that remains relevant today, 1984 is a powerful warning about the dangers of totalitarianism and the loss of individuality. Orwell's vision of the future is both bleak and thought-provoking. The portrayal of a society under constant surveillance and controlled by propaganda is eerily reminiscent of current events.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./reviewspic/to kill a mocking bird.jpg" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>To Kill a Mockingbird</h3>
+                    <p>Harper Lee</p>
+                    <p class="review-date">Reviewed on May 13, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i></p>
+                    <p class="review-text">A poignant and deeply moving novel, To Kill a Mockingbird explores themes of racial injustice and moral growth. The characters are vividly drawn, and the story is both heart-wrenching and uplifting. Scout's narrative voice is charming and authentic, making the story even more compelling.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./reviewspic/The Great Gatsby.jpg" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>The Great Gatsby</h3>
+                    <p>F. Scott Fitzgerald</p>
+                    <p class="review-date">Reviewed on May 17, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-regular fa-star" style="color: orange;"></i></p>
+                    <p class="review-text">A brilliant critique of the American Dream, The Great Gatsby is a beautifully written novel that captures the glamour and disillusionment of the Jazz Age. Fitzgerald's prose is exquisite, and the story is both tragic and compelling. The characters' lives of excess and their ultimate emptiness offer a profound reflection on societal values.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./reviewspic/Pride and Prejudice.jpg" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>Pride and Prejudice</h3>
+                    <p>Jane Austen</p>
+                    <p class="review-date">Reviewed on May 21, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i></p>
+                    <p class="review-text">A timeless classic, Pride and Prejudice is a witty and insightful exploration of love, society, and the complexities of human relationships. Austen's characters are unforgettable, and her commentary on social norms is sharp and perceptive. Elizabeth Bennet's journey of self-awareness and growth is both entertaining and enlightening.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./reviewspic/sci1.jpg" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>The Peripheral</h3>
+                    <p>William Gibson</p>
+                    <p class="review-date">Reviewed on May 28, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i></p>
+                    <p class="review-text">A timeless classic, Pride and Prejudice is a witty and insightful exploration of love, society, and the complexities of human relationships. Austen's characters are unforgettable, and her commentary on social norms is sharp and perceptive. Elizabeth Bennet's journey of self-awareness and growth is both entertaining and enlightening.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./reviewspic/fantasy2.jpg" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>The Twisted Tree</h3>
+                    <p>Racheal Burg</p>
+                    <p class="review-date">Reviewed on May 21, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i></p>
+                    <p class="review-text">A timeless classic, Pride and Prejudice is a witty and insightful exploration of love, society, and the complexities of human relationships. Austen's characters are unforgettable, and her commentary on social norms is sharp and perceptive. Elizabeth Bennet's journey of self-awareness and growth is both entertaining and enlightening.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./reviewspic/fantasy3.jpg" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>The Burning God</h3>
+                    <p>R.E. Kung</p>
+                    <p class="review-date">Reviewed on May 21, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-regular fa-star" style="color: orange;"></i></p>
+                    <p class="review-text">A timeless classic, Pride and Prejudice is a witty and insightful exploration of love, society, and the complexities of human relationships. Austen's characters are unforgettable, and her commentary on social norms is sharp and perceptive. Elizabeth Bennet's journey of self-awareness and growth is both entertaining and enlightening.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./reviewspic/fantasy4.jpg" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>Black Amazon of Mars</h3>
+                    <p>Lexi Brukket</p>
+                    <p class="review-date">Reviewed on May 21, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-regular fa-star" style="color: orange;"></i></p>
+                    <p class="review-text">A timeless classic, Pride and Prejudice is a witty and insightful exploration of love, society, and the complexities of human relationships. Austen's characters are unforgettable, and her commentary on social norms is sharp and perceptive. Elizabeth Bennet's journey of self-awareness and growth is both entertaining and enlightening.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="review-avatar">
+                    <img src="./reviewspic/rate4.jpg" alt="User Avatar">
+                </div>
+                <div class="review-content">
+                    <h3>The Silent Patience</h3>
+                    <p>Alex Michalides</p>
+                    <p class="review-date">Reviewed on May 21, 2024</p>
+                    <p class="star-rating"><i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star" style="color: orange;"></i>
+                        <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i></p>
+                    <p class="review-text">A timeless classic, Pride and Prejudice is a witty and insightful exploration of love, society, and the complexities of human relationships. Austen's characters are unforgettable, and her commentary on social norms is sharp and perceptive. Elizabeth Bennet's journey of self-awareness and growth is both entertaining and enlightening.</p>
+                    <button class="toggle-button" onclick="toggleReviewContent(this)">Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        
+        <div class="foo-div">
+            <a href="index.html">
+                <img id="footer-img" src="./assets/logobwh.png" class="image" alt="">
+            </a>
+       <div class="foo-div">
+<a href="terms.html" ><p>term's & condition's   </p></a><i>|</i>
+<a href="privacy.html" ><p>privacy policy   </p></a><i>|</i>
+<div class="footer-icon-container">
+    <i class="fa-brands fa-instagram" style="color:white;"></i>
+    <i class="fa-brands fa-twitter" style="color:white;"></i>
+    <i class="fa-brands fa-facebook" style="color:white;"></i>    
+</div><i>|</i>
+<p>&copy; 2024 bookwormhaven.com</p>
+       </div>
+          </div>
+</footer>
+    
+</body>
+
+</html>
+
+
+        </div>
+    </div>
+
+    <script>
+        function toggleReadMore(element) {
+            const reviewContent = element.parentNode;
+            const moreText = " Additional review content goes here, providing more insights and details about the book.";
+
+            if (element.textContent === "Read More") {
+                reviewContent.innerHTML += moreText;
+                element.textContent = "Read Less";
+            } else {
+                reviewContent.innerHTML = reviewContent.innerHTML.replace(moreText, '');
+                element.textContent = "Read More";
+            }
+        }
+        function toggleReviewContent(button) {
+            const reviewContent = button.previousElementSibling;
+            reviewContent.classList.toggle('review-text'); // Toggle the class to show/hide review content
+            if (button.textContent === 'Review') {
+                button.textContent = 'Hide Content';
+            } else {
+                button.textContent = 'Review';
+            }
+        }
+    </script>
+</body>
+
+</html>

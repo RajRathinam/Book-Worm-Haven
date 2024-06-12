@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Content List</title>
+    <link rel="icon" href="./assets/logobwh.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right,hsl(0, 0%, 90%),hsl(0, 0%, 100%));
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            transition: 2s;
+        }
+
+        nav a img {
+            width: 100px;
+            height: 100%;
+        }
+
+        nav { text-transform: uppercase;
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgb(0, 0, 0);
+            padding: 10px 20px;
+            color: grey;
+            z-index: 2;
+        }
+
+        nav div ul {
+            display: flex;
+            text-decoration: none;
+            gap: 20px;
+        }
+
+        nav div ul a:hover {
+            color: #fff;
+        }
+
+        #index {
+            color: #fff;
+        }
+
+       
+        .nav-bottom {
+            max-height: 41px;
+            position: sticky;
+            top: 63px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 8px 20px;
+            background: rgb(79, 79, 80);
+            color: #dddddd;
+            font-size: 15px;
+            z-index: 2;
+        }
+
+        .nav-bottom div {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+        }
+
+        /* .nav-bottom .ele {
+            display: none;
+        }
+        .nav-bottom .ele li{
+            display: none;
+        } */
+        
+
+        .nav-bottom .elements {
+            position: relative;
+            top: 60px;
+            left: -50px;
+        }
+
+        nav .forHover:hover,
+        .nav-bottom .drop:hover,#index-a   {
+            border: 1px white solid;
+            border-radius: 4px;
+            padding: 2px;
+            cursor: pointer;
+            background-color: rgb(99, 100, 100);
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .book-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .book-item {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .book-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .book-item h3 {
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .book-item p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .book-item .description {
+            font-size: 0.9em;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1d1d1d;
+            color: white;
+        }
+
+        #footer-img {
+            width: 100px;
+            height: 39px;
+        }
+
+        footer p {
+            font-size: 15px;
+        }
+
+        footer .foo-div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        footer .foo-div a{
+            color: grey;
+        }
+        footer .foo-div a:hover{
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">
+            <img src="./assets/logobwh.png" alt="">
+        </a>
+        <div>
+            <ul>
+                <a href="index.html">Home</a>
+                <a href="literary.html" id="index">Books</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="interview.html">Interviews</a>
+                <a href="virtual.html">Book Club</a>
+                <a href="contact.html">Contact Us</a>
+            </ul>
+        </div>
+    </nav>
+    <div class="nav-bottom" >
+        <div class="drop" >
+            <img src="./assets/menu_icon.png" width="25px" alt="">
+            <p>Literary Genres</p>
+        </div>
+
+        <a class="ele drop" id="index-a" href="fiction.html" target="_blank">fiction</a>
+        <a class="ele drop" href="non-fiction.html">non-fiction</a>
+        <a class="ele drop" href="folktales.html">folktales</a>
+        <a class="ele drop" href="drama.html">drama</a>
+        <a class="ele drop" href="poetry.html">poetry</a>
+
+    </div>
+    <div class="container">
+        <h1 style="text-transform: uppercase;">fictional book's</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for books/authors" onkeyup="filterBooks()">
+
+        </div>
+        <div class="book-list">
+            <!-- Book items here -->
+            <div class="book-item">
+                <img src="./fiction/fahrenheit 451.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i>
+                </div>               
+                <h3>Title: Fahrenheit 451</h3>
+                <p>Author: Ray Bradbury</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/The Paying Guests-sarah waters.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                </div>            
+                <h3>Title: The Paying Guests</h3>
+                <p>Author: Sarah Waters</p>
+               
+            </div>
+            <!-- Repeat for the rest of the books -->
+            <!-- Add more book items below -->
+            <div class="book-item">
+                <img src="./fiction/Frankenstein-mary shelley.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star-half-stroke" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                </div>             
+                <h3>Title: Frankenstein</h3>
+                <p>Author: Mary Shelley</p>
+               
+            </div>
+            <!-- Repeat for more books -->
+            <div class="book-item">
+                <img src="./fiction/Jane Eyre-charlotte bronte.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                </div>             
+                <h3>Title: Jane Eyre</h3>
+                <p>Author: Charlotte Bronte</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/Lord of the Flies-william golding.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                </div>             
+                <h3>Title: Lord of the Flies</h3>
+                <p>Author: William Golding</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/The Adventures of Huckleberry Finn-mark twain.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                </div>             
+                <h3>Title: The Adventures of Huckleberry Finn</h3>
+                <p>Author: Mark Twain</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/The Vegetarian-han kang.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                </div>             
+                <h3>Title: The Vegetarian</h3>
+                <p>Author: Han Kang</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/Watership Down-richard adams.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i>
+                </div>             
+                <h3>Title: Watership Down</h3>
+                <p>Author: Richard Adams</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/War and Peace-Leo Tolstoy.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                </div>             
+                <h3>Title: War and Peace</h3>
+                <p>Author: Leo Tolstoy</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/Memoirs of a Geisha-Arthur Golden.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                </div>             
+                <h3>Title: Memoirs of a Geisha</h3>
+                <p>Author: Arthur Golden</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/Native Son-Richard Wright.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                </div>             
+                <h3>Title: Native Son</h3>
+                <p>Author: Richard Wrigh</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/The Hunger Games-Suzanne Collins.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                </div>             
+                <h3>Title: The Hunger Games</h3>
+                <p>Author: Suzanne Collins</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/The Old Man and The Sea-Ernest Hemingway.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i>
+                </div>             
+                <h3>Title: The Old Man and The Sea</h3>
+                <p>Author: Ernest Hemingway</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/The Road-Corrnac McCarthy.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i>
+                </div>             
+                <h3>Title: The Road</h3>
+                <p>Author: Corrnac McCarthy</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/The Time Traveler's Wife-Audrey Niffnegger.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                </div>             
+                <h3>Title: The Time Traveler's Wife</h3>
+                <p>Author: Audrey Niffnegger</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/Ham on Rye-Charles Bukowski.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i>
+                </div>             
+                <h3>Title: Ham on Rye</h3>
+                <p>Author: Charles Bukowski</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/Harry Potter and the Sorcerer's Stone-J.K. Rowling.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                </div>             
+                <h3>Title: Harry Potter and the Sorcerer's Stone</h3>
+                <p>Author: J.K. Rowling</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/The Hitchiker's Guide to the Galaxy-Douglas Adams.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i>
+                </div>             
+                <h3>Title: The Hitchiker's Guide to the Galaxy</h3>
+                <p>Author: Douglas Adams</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/The Help-Kathryn Stockett.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-regular fa-star" style="color: orange;"></i>
+                </div>             
+                <h3>Title: The Help</h3>
+                <p>Author: Kathryn Stockett</p>
+               
+            </div>
+            <div class="book-item">
+                <img src="./fiction/The Hobbit-J.R.R Tolkien.webp" alt="Book Cover">
+                <div class="star-icon">
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star" style="color: orange;"></i>
+                    <i class="fa-solid fa-star-half-stroke" style="color: orange;"></i>
+                </div>             
+                <h3>Title: The Hobbit</h3>
+                <p>Author: J.R.R Tolkien</p>
+               
+            </div>
+        </div>
+    </div>
+    <footer>
+        
+        <div class="foo-div">
+            <a href="index.html">
+                <img id="footer-img" src="./assets/logobwh.png" class="image" alt="">
+            </a>
+       <div class="foo-div">
+<a href="terms.html" ><p>term's & condition's   </p></a><i>|</i>
+<a href="privacy.html" ><p>privacy policy   </p></a><i>|</i>
+<div class="footer-icon-container">
+    <i class="fa-brands fa-instagram" style="color:white;"></i>
+    <i class="fa-brands fa-twitter" style="color:white;"></i>
+    <i class="fa-brands fa-facebook" style="color:white;"></i>    
+</div><i>|</i>
+<p>&copy; 2024 bookwormhaven.com</p>
+       </div>
+          </div>
+</footer>
+    <script>
+         const paraElement = document.querySelectorAll(".ele");
+        function showAll() {
+            for (ele of paraElement) {
+                ele.style.display = 'block';
+            }
+        }
+        function noneAll() {
+            for (ele of paraElement) {
+                ele.style.display = 'none';
+            }
+        }
+        function filterBooks() {
+            const searchInput = document.querySelector('.search-bar input').value.toLowerCase();
+            const books = document.querySelectorAll('.book-item');
+
+            books.forEach(book => {
+                const title = book.querySelector('h3').textContent.toLowerCase();
+                const author = book.querySelector('p').textContent.toLowerCase();
+                // const description = book.querySelector('.description').textContent.toLowerCase();
+
+                if (title.includes(searchInput) || author.includes(searchInput)) {
+                    book.style.display = 'block';
+                } else {
+                    book.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
